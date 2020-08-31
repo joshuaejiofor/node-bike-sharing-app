@@ -1,7 +1,7 @@
 import request from 'request';
 
 export const getWeatherReport = (city:String) => { 
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}`
+    const url = `${process.env.WEATHER_BASEURL}?q=${city}&appid=${process.env.WEATHER_API_KEY}`
     
     return new Promise(function(resolve, reject){
         request({url, json: true}, (error, {body}) => {
