@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStations = void 0;
 const request_1 = __importDefault(require("request"));
 exports.getStations = () => {
-    const url = `https://kiosks.bicycletransit.workers.dev/phl`;
+    const url = process.env.STATION_URL || '';
     return new Promise(function (resolve, reject) {
         request_1.default({ url, json: true }, (error, { body }) => {
             if (error) {
-                reject('Unable to connect to weather service!');
+                reject('Unable to connect to bike stations service!');
             }
             else if (body.error) {
-                reject('Unable to find location');
+                reject('Unable to get update on bike stations');
             }
             else {
                 resolve(body);

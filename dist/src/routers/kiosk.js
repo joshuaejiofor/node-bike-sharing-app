@@ -25,7 +25,7 @@ router.get('/api/v1/stations/:kioskId', auth_1.auth, (req, res) => __awaiter(voi
         if (!station) {
             return res.status(404).send({ error: "No data found" });
         }
-        const kiosk = station.weather.features.find((item) => {
+        const kiosk = station.stations.features.find((item) => {
             return item.properties.kioskId == req.params.kioskId;
         });
         const stationObject = station.toObject();
