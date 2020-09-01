@@ -9,7 +9,7 @@ const kioskRouter = require('./routers/kiosk')
 const app = express()
 
 // Define paths for Express config
-const publicDirectoryPath = path.join(__dirname, '../public')
+// const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 const name = "Joshua Ejiofor"
@@ -21,7 +21,7 @@ hbs.registerPartials(partialsPath)
 
 // Setup static directory to serve
 app.use(express.json())
-app.use(express.static(publicDirectoryPath))
+// app.use(express.static(publicDirectoryPath))
 app.use(stationRouter)
 app.use(kioskRouter)
 
