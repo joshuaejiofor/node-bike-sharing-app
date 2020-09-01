@@ -2,9 +2,9 @@
   "name": "bike-sharing-app",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/index.ts",
+    "start": "node dist/src/index.js",
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.ts -e js,hbs,ts",
     "test": "env-cmd -f ./config/test.env node_modules/.bin/jest --runInBand --detectOpenHandles",
     "build": "tsc -p ."
