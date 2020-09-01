@@ -11,20 +11,20 @@ const stationRouter = require('./routers/station');
 const kioskRouter = require('./routers/kiosk');
 const app = express();
 // Define paths for Express config
-const publicDirectoryPath = path_1.default.join(__dirname, '../public');
-const viewsPath = path_1.default.join(__dirname, '../templates/views');
-const partialsPath = path_1.default.join(__dirname, '../templates/partials');
+const publicDirectoryPath = path_1.default.join(__dirname, `${process.env.PATH_TO_PUBLIC}`);
+const viewsPath = path_1.default.join(__dirname, `${process.env.PATH_TO_VIEWS}`);
+const partialsPath = path_1.default.join(__dirname, `${process.env.PATH_TO_PARTIALS}`);
 const name = "Joshua Ejiofor";
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs_1.default.registerPartials(partialsPath);
 // Setup static directory to serve
-app.use(express.static(publicDirectoryPath));
 app.use(express.json());
+app.use(express.static(publicDirectoryPath));
 app.use(stationRouter);
 app.use(kioskRouter);
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index', {
         name,
         title: 'Bike Sharing App'
